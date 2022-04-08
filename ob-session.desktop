@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Comment=Shutdown your session
+Icon=system-shutdown
+TryExec=queSession
+Exec=queSession
+Categories=Qt;
