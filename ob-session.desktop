@@ -2,6 +2,6 @@
 Type=Application
 Comment=Shutdown your session
 Icon=system-shutdown
-TryExec=queSession
-Exec=queSession
+TryExec=shutdown-dialog
+Exec=shutdown-dialog
 Categories=Qt;
