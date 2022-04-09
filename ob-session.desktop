@@ -1,7 +1,0 @@
-[Desktop Entry]
-Type=Application
-Comment=Shutdown your session
-Icon=system-shutdown
-TryExec=shutdown-dialog
-Exec=shutdown-dialog
-Categories=Qt;
