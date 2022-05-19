@@ -1,0 +1,91 @@
+diff -Naur b/data/Makefile.am a/data/Makefile.am
+--- data/Makefile.am	2022-05-19 04:59:14.852276069 -0400
++++ data/Makefile.am	2022-05-19 05:17:28.822255790 -0400
+@@ -16,7 +16,8 @@
+ systemddir = /lib/systemd/system
+ systemd_DATA = ukui-media-control-mute-led.service
+ 
+-gsettingsschema_in_files = org.ukui.media.gschema.xml.in
++gsettingsschema_in_files = org.ukui.media.gschema.xml.in \
++	org.ukui.audio.gschema.xml.in
+ gsettings_SCHEMAS = $(gsettingsschema_in_files:.xml.in=.xml)
+ @GSETTINGS_RULES@
+ @INTLTOOL_XML_RULE@
+diff -Naur b/data/org.ukui.audio.gschema.xml.in a/data/org.ukui.audio.gschema.xml.in
+--- data/org.ukui.audio.gschema.xml.in	1969-12-31 19:00:00.000000000 -0500
++++ data/org.ukui.audio.gschema.xml.in	2022-05-19 04:59:45.697689230 -0400
+@@ -0,0 +1,74 @@
++<schemalist gettext-domain="ukui-media">
++  <schema id="org.ukui.audio" path="/org/ukui/audio/">
++    <key name="first-run" type="b">
++      <default>true</default>
++      <summary>Init system volume</summary>
++      <description>If true init system volume, otherwise do nothing </description>
++    </key>
++    <key name="headphone-output-volume" type="i">
++      <default>17</default>
++      <summary>Default headphone volume percentage</summary>
++      <description>Default headphone volume percentage 0-100</description>
++    </key>
++    <key name="output-volume" type="i">
++      <default>67</default>
++      <summary>Default output volume perccentage</summary>
++      <description>Default output volume percentage 0-100</description>
++    </key>
++    <key name="hdmi-volume" type="i">
++      <default>100</default>
++      <summary>Default hdmi volume perccentage</summary>
++      <description>Default hdmi volume percentage 0-100</description>
++    </key>
++    <key name="mic-volume" type="i">
++      <default>100</default>
++      <summary>Default Mic volume percentage</summary>
++      <description>Default Mic volume percentage 0-100</description>
++    </key>
++    <key name="plugin-init-volume" type="b">
++      <default>true</default>
++      <summary>Plugin init volume </summary>
++      <description>Whether to initialize the volume when plugging or unplugging the headset </description>
++    </key>
++    <key name="intel-mic" type="b">
++      <default>true</default>
++      <summary>Plugin init intel mic volume </summary>
++      <description>Whether to initialize the volume when plugging or unplugging the headset </description>
++    </key>
++    <key name="rear-mic" type="b">
++      <default>true</default>
++      <summary>Plugin init volume </summary>
++      <description>Whether to initialize the volume when plugging or unplugging the headset </description>
++    </key>
++    <key name="headset-mic" type="b">
++      <default>true</default>
++      <summary>Plugin init volume </summary>
++      <description>Whether to initialize the volume when plugging or unplugging the headset </description>
++    </key>
++    <key name="linein" type="b">
++      <default>true</default>
++      <summary>Plugin init volume </summary>
++      <description>Whether to initialize the volume when plugging or unplugging the headset </description>
++    </key>
++    <key name="speaker" type="b">
++      <default>true</default>
++      <summary>Plugin init speaker volume </summary>
++      <description>Whether to initialize the volume when plugging or unplugging the headset </description>
++    </key>
++    <key name="headphones-1" type="b">
++      <default>true</default>
++      <summary>Plugin init volume </summary>
++      <description>Whether to initialize the volume when plugging or unplugging the headset </description>
++    </key>
++    <key name="headphones-2" type="b">
++      <default>true</default>
++      <summary>Plugin init volume </summary>
++      <description>Whether to initialize the volume when plugging or unplugging the rear headphone </description>
++    </key>
++    <key name="hdmi" type="b">
++      <default>true</default>
++      <summary>Plugin init volume </summary>
++      <description>Whether to initialize the volume when plugging or unplugging the hdmi </description>
++    </key>
++  </schema>
++</schemalist>
