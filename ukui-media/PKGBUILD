@@ -23,8 +23,9 @@ prepare() {
 build() {
   cd $pkgname-$pkgver
   
-  cp ukui-volume-control-applet-qt/data/org.ukui.audio.gschema.xml data/
-
+    for p in "$srcdir"/*.patch; do
+        patch -p1 < "$p"
+    done
   ./configure --prefix=/usr --libexecdir=/usr/lib/$pkgname --sysconfdir=/etc
   make
 
