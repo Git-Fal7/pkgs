@@ -16,7 +16,14 @@ sha512sums=(
 'SKIP')
 
 prepare() {
-  cd $pkgname-$pkgver
+  cd $pkgname-$pkgver/data
+  echo "" > org.ukui.audio.gschema.xmlin
+  for p in "$srcdir"/*.patch; do
+      echo $p
+      cp $p ./
+      patch -p1 < ./`basename $p`
+  done
+  cd ..
   sed -i 's|systemddir = /lib/systemd/system|systemddir = /usr/lib/systemd/system|' data/Makefile.am
 
   NOCONFIGURE=1 ./autogen.sh
@@ -25,9 +32,6 @@ prepare() {
 build() {
   cd $pkgname-$pkgver
   
-    for p in "$srcdir"/*.patch; do
-        patch -p1 < "$p"
-    done
   ./configure --prefix=/usr --libexecdir=/usr/lib/$pkgname --sysconfdir=/etc
   make
 
