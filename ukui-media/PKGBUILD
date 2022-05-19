@@ -17,7 +17,10 @@ sha512sums=(
 
 prepare() {
   cd $pkgname-$pkgver/data
-  echo "" > org.ukui.audio.gschema.xmlin
+
+  cp $pkgname-$pkgver/ukui-volume-control-applet-qt/data/org.ukui.sound.gschema.xml ./org.ukui.sound.gschema.xml.in
+  cp $pkgname-$pkgver/ukui-volume-control-applet-qt/data/org.ukui.audio.gschema.xml ./org.ukui.audio.gschema.xml.in
+  
   for p in "$srcdir"/*.patch; do
       echo $p
       cp $p ./
